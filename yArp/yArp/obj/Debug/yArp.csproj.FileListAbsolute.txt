@@ -7,3 +7,12 @@ E:\Programming\C#\Okay Google\yArp\yArp\bin\Debug\yArp.exe
 E:\Programming\C#\Okay Google\yArp\yArp\bin\Debug\yArp.pdb
 E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.exe
 E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.pdb
+D:\Git\hecking jm\yArp\yArp\yArp\bin\Debug\yArp.exe.config
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.exe
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.pdb
+D:\Git\hecking jm\yArp\yArp\yArp\bin\Debug\yArp.exe
+D:\Git\hecking jm\yArp\yArp\yArp\bin\Debug\yArp.pdb
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.csprojResolveAssemblyReference.cache
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.Form1.resources
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.Properties.Resources.resources
+D:\Git\hecking jm\yArp\yArp\yArp\obj\Debug\yArp.csproj.GenerateResource.Cache
