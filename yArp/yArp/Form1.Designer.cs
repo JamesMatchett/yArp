@@ -101,7 +101,7 @@
             this.scan.TabIndex = 3;
             this.scan.Text = "Scan Network";
             this.scan.UseVisualStyleBackColor = true;
-            this.scan.Click += new System.EventHandler(this.scan_Click);
+            this.scan.Click += new System.EventHandler(this.Scan_Click);
             // 
             // SubnetLabel
             // 

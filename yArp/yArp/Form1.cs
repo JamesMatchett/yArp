@@ -72,20 +72,21 @@ namespace yArp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getSubnet();
+            
             GetAdapters();
+            GetSubnet();
         }
 
-        private void scan_Click(object sender, EventArgs e)
+        private void Scan_Click(object sender, EventArgs e)
         {
             if (AutoDetect.Checked)
             {
-                subnetTextBox.Text = getSubnet();
+                subnetTextBox.Text = GetSubnet();
             }
             //get subnet
         }
 
-        private string getSubnet()
+        private string GetSubnet()
         {// add if adapter == null exception
             if (AdapterList.SelectedItem != null)
             {
