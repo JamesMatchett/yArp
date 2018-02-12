@@ -1,0 +1,9 @@
+E:\Programming\C#\Okay Google\yArp\yArp\bin\Debug\yArp.exe.config
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.csprojResolveAssemblyReference.cache
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.Form1.resources
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.Properties.Resources.resources
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.csproj.GenerateResource.Cache
+E:\Programming\C#\Okay Google\yArp\yArp\bin\Debug\yArp.exe
+E:\Programming\C#\Okay Google\yArp\yArp\bin\Debug\yArp.pdb
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.exe
+E:\Programming\C#\Okay Google\yArp\yArp\obj\Debug\yArp.pdb
