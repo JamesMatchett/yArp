@@ -72,26 +72,33 @@ namespace yArp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            getSubnet();
+            GetAdapters();
         }
 
         private void scan_Click(object sender, EventArgs e)
         {
-            subnetTextBox.Text = getSubnet();
+            if (AutoDetect.Checked)
+            {
+                subnetTextBox.Text = getSubnet();
+            }
             //get subnet
         }
 
         private string getSubnet()
-        {
-            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+        {// add if adapter == null exception
+            if (AdapterList.SelectedItem != null)
             {
-                foreach (UnicastIPAddressInformation ip in nic.GetIPProperties().UnicastAddresses)
+                foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
                 {
-                    if (nic.Name == AdapterList.SelectedItem.ToString())
+                    foreach (UnicastIPAddressInformation ip in nic.GetIPProperties().UnicastAddresses)
                     {
-                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        if (nic.Name == AdapterList.SelectedItem.ToString())
                         {
-                            return FilterToSubnet(ip.Address.ToString());
+                            if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                            {
+                                return FilterToSubnet(ip.Address.ToString());
+                            }
                         }
                     }
                 }
