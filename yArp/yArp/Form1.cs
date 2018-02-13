@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -72,19 +73,57 @@ namespace yArp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             GetAdapters();
-            GetSubnet();
+
         }
 
-        private void Scan_Click(object sender, EventArgs e)
+        private async void Scan_Click(object sender, EventArgs e)
         {
             if (AutoDetect.Checked)
             {
                 subnetTextBox.Text = GetSubnet();
             }
-            //get subnet
+
+            byte[] buffer = Encoding.ASCII.GetBytes(".");
+            PingOptions options = new PingOptions(50, true);
+            AutoResetEvent reset = new AutoResetEvent(false);
+            Ping ping = new Ping();
+            string root = subnetTextBox.Text + ".";
+            ping.PingCompleted += new PingCompletedEventHandler(ping_Complete);
+
+            var tasks = new List<Task>();
+            for (int i =0; i<=255; i++)
+            {
+
+                var task = PingAndUpdateNodeAsync(ping, root+i);
+                tasks.Add(task);
+            }
+
+            await Task.WhenAll(tasks);
         }
+    
+
+
+
+      private async Task PingAndUpdateNodeAsync(Ping ping, string address)
+    {
+        var reply = await ping.SendPingAsync(address);
+        if (reply.Status == IPStatus.Success)
+        {
+                Devices.Items.Add(address);
+        }
+        else
+        {
+           
+          }
+      }
+  
+    
+
+        
+    
+
+      
 
         private string GetSubnet()
         {// add if adapter == null exception
