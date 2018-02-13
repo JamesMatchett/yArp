@@ -21,9 +21,7 @@ namespace yArp
             InitializeComponent();
             Devices.MouseClick += Devices_MouseClick;
 
-            string[] rows = { "test", "test2", "test3" };
-            var listViewItem = new ListViewItem(rows);
-            Devices.Items.Add(listViewItem);
+           
 
         }
 
@@ -92,16 +90,25 @@ namespace yArp
             }
 
             await Task.WhenAll(tasks);
+
+            
+            
         }
  
       private async Task PingAsync(string address)
       {
         Ping ping = new Ping();
         var reply = await ping.SendPingAsync(address);
-        if (reply.Status == IPStatus.Success)
-        {
-                Devices.Items.Add(address);
-        }
+            if (reply.Status == IPStatus.Success)
+            {
+                //get host name
+                //IPAddress ip = Dns.GetHostEntry(address).AddressList.Where(o => o.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).First();
+                string[] rows = { address, "", MAC_Helper.GetMacAddress(address) };
+            
+            
+                var listViewItem = new ListViewItem(rows);
+                Devices.Items.Add(listViewItem);
+            }
       }
   
     
