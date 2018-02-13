@@ -83,40 +83,25 @@ namespace yArp
             {
                 subnetTextBox.Text = GetSubnet();
             }
-
-            byte[] buffer = Encoding.ASCII.GetBytes(".");
-            PingOptions options = new PingOptions(50, true);
-            AutoResetEvent reset = new AutoResetEvent(false);
-            Ping ping = new Ping();
             string root = subnetTextBox.Text + ".";
-           
-
             var tasks = new List<Task>();
             for (int i =0; i<=255; i++)
             {
-
-                var task = PingAndUpdateNodeAsync(root+i);
+                var task = PingAsync(root+i);
                 tasks.Add(task);
             }
 
             await Task.WhenAll(tasks);
         }
-    
-
-
-
-      private async Task PingAndUpdateNodeAsync(string address)
-    {
-            Ping ping = new Ping();
+ 
+      private async Task PingAsync(string address)
+      {
+        Ping ping = new Ping();
         var reply = await ping.SendPingAsync(address);
         if (reply.Status == IPStatus.Success)
         {
                 Devices.Items.Add(address);
         }
-        else
-        {
-           
-          }
       }
   
     
