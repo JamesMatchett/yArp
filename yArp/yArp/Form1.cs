@@ -19,19 +19,22 @@ namespace yArp
         public Form1()
         {
             InitializeComponent();
-            Devices.MouseClick += Devices_MouseClick;
 
+            Devices.ItemCheck += Devices_ItemCheck;
            
 
         }
 
-        private void Devices_MouseClick(object sender, MouseEventArgs e)
+        private void Devices_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-
-            foreach (ListViewItem I in Devices.Items)
+            if (e.CurrentValue == CheckState.Checked)
             {
-                SelectDeselect(I, !I.Checked);
+                SelectDeselect(Devices.Items[e.Index], false);
+            }else
+            {
+                SelectDeselect(Devices.Items[e.Index], true);
             }
+
         }
 
         private void Devices_SelectedIndexChanged(object sender, EventArgs e)
