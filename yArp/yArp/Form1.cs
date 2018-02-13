@@ -89,13 +89,13 @@ namespace yArp
             AutoResetEvent reset = new AutoResetEvent(false);
             Ping ping = new Ping();
             string root = subnetTextBox.Text + ".";
-            ping.PingCompleted += new PingCompletedEventHandler(ping_Complete);
+           
 
             var tasks = new List<Task>();
             for (int i =0; i<=255; i++)
             {
 
-                var task = PingAndUpdateNodeAsync(ping, root+i);
+                var task = PingAndUpdateNodeAsync(root+i);
                 tasks.Add(task);
             }
 
@@ -105,8 +105,9 @@ namespace yArp
 
 
 
-      private async Task PingAndUpdateNodeAsync(Ping ping, string address)
+      private async Task PingAndUpdateNodeAsync(string address)
     {
+            Ping ping = new Ping();
         var reply = await ping.SendPingAsync(address);
         if (reply.Status == IPStatus.Success)
         {
