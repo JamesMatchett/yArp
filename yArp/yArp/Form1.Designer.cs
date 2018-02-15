@@ -41,6 +41,7 @@
             this.NetworkAdapterLabel = new System.Windows.Forms.Label();
             this.AdapterList = new System.Windows.Forms.ListBox();
             this.RefreshAdapters = new System.Windows.Forms.Button();
+            this.DCON = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Devices
@@ -159,11 +160,23 @@
             this.RefreshAdapters.UseVisualStyleBackColor = true;
             this.RefreshAdapters.Click += new System.EventHandler(this.RefreshAdapters_Click);
             // 
+            // DCON
+            // 
+            this.DCON.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.DCON.Location = new System.Drawing.Point(415, 320);
+            this.DCON.Name = "DCON";
+            this.DCON.Size = new System.Drawing.Size(139, 23);
+            this.DCON.TabIndex = 10;
+            this.DCON.Text = "Disconnect Devices";
+            this.DCON.UseVisualStyleBackColor = false;
+            this.DCON.Click += new System.EventHandler(this.DCON_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 424);
+            this.Controls.Add(this.DCON);
             this.Controls.Add(this.RefreshAdapters);
             this.Controls.Add(this.AdapterList);
             this.Controls.Add(this.NetworkAdapterLabel);
@@ -197,6 +210,7 @@
         private System.Windows.Forms.Label NetworkAdapterLabel;
         private System.Windows.Forms.ListBox AdapterList;
         private System.Windows.Forms.Button RefreshAdapters;
+        private System.Windows.Forms.Button DCON;
     }
 }
 
