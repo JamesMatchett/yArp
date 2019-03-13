@@ -15,15 +15,12 @@ using System.Windows.Forms;
 
 namespace yArp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-
             Devices.ItemCheck += Devices_ItemCheck;
-           
-
         }
 
         private void Devices_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -94,9 +91,6 @@ namespace yArp
             }
 
             await Task.WhenAll(tasks);
-
-            
-            
         }
  
       private async Task PingAsync(string address)
@@ -116,14 +110,23 @@ namespace yArp
       }
   
     
+      private string GetSubnet()
+        {
+            if(AdapterList.SelectedItem == null)
+            {
+                //check adapter list, if any exist pick the first
+                //else show message showing an adapter needs to be found
+                if(AdapterList.Items.Count == 0)
+                {
+                    if (!GetAdapters())
+                    {
+                        MessageBox.Show("Can't automatically derive subnet as no adapters could be found");
+                        return null;
+                    }
+                }
+                AdapterList.SelectedItem = AdapterList.Items[0];
+            }
 
-        
-    
-
-      
-
-        private string GetSubnet()
-        {// add if adapter == null exception
             if (AdapterList.SelectedItem != null)
             {
                 foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
@@ -149,16 +152,18 @@ namespace yArp
             return input.Substring(0, input.LastIndexOf("."));
         }
 
-        private void GetAdapters()
+        private bool GetAdapters()
         {
+            //returns a boolean if adapters were found
             foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
             {
                 if (!AdapterList.Items.Contains(nic.Name))
                 {
-                    
                     AdapterList.Items.Add(nic.Name);
                 }
             }
+
+            return AdapterList.Items.Count > 0; 
         }
 
         private void RefreshAdapters_Click(object sender, EventArgs e)

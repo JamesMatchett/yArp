@@ -1,6 +1,6 @@
 ﻿namespace yArp
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -54,6 +54,7 @@
             this.Devices.Location = new System.Drawing.Point(12, 12);
             this.Devices.Name = "Devices";
             this.Devices.Size = new System.Drawing.Size(384, 331);
+            this.Devices.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.Devices.TabIndex = 0;
             this.Devices.UseCompatibleStateImageBehavior = false;
             this.Devices.View = System.Windows.Forms.View.Details;
@@ -62,7 +63,7 @@
             // IP
             // 
             this.IP.Text = "IP";
-            this.IP.Width = 77;
+            this.IP.Width = 101;
             // 
             // HostName
             // 
@@ -171,7 +172,7 @@
             this.DCON.UseVisualStyleBackColor = false;
             this.DCON.Click += new System.EventHandler(this.DCON_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +188,7 @@
             this.Controls.Add(this.DeselectAll);
             this.Controls.Add(this.SelectAll);
             this.Controls.Add(this.Devices);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "yArp";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
