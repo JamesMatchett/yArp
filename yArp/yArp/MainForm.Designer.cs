@@ -58,7 +58,6 @@
             this.Devices.TabIndex = 0;
             this.Devices.UseCompatibleStateImageBehavior = false;
             this.Devices.View = System.Windows.Forms.View.Details;
-            this.Devices.SelectedIndexChanged += new System.EventHandler(this.Devices_SelectedIndexChanged);
             // 
             // IP
             // 
