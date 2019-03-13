@@ -1,16 +1,6 @@
-﻿using PacketDotNet;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace yArp
@@ -34,10 +24,6 @@ namespace yArp
                 SelectDeselect(Devices.Items[e.Index], true);
             }
 
-        }
-
-        private void Devices_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void SelectAll_Click(object sender, EventArgs e)
@@ -89,11 +75,6 @@ namespace yArp
         private void DCON_Click(object sender, EventArgs e)
         {
             DCONHandler.DCON(Devices, AutoDetect.Checked, subnetTextBox, AdapterList);
-        }
-
-        private bool ValidIP(string input)
-        {
-            return (IPAddress.TryParse(input, out IPAddress temp));
         }
     }
 }
