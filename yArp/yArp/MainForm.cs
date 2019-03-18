@@ -77,6 +77,8 @@ namespace yArp
         {
             DCONHandler.DCON(Devices, AutoDetect.Checked, subnetTextBox, AdapterList);
         }
+
+        private void RemoveDuplicatesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (RemoveDuplicatesCheckBox.Checked)
             {
