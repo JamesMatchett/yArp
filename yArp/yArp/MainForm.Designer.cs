@@ -42,6 +42,7 @@
             this.AdapterList = new System.Windows.Forms.ListBox();
             this.RefreshAdapters = new System.Windows.Forms.Button();
             this.DCON = new System.Windows.Forms.Button();
+            this.RemoveDuplicatesCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Devices
@@ -171,11 +172,24 @@
             this.DCON.UseVisualStyleBackColor = false;
             this.DCON.Click += new System.EventHandler(this.DCON_Click);
             // 
+            // RemoveDuplicatesCheckBox
+            // 
+            this.RemoveDuplicatesCheckBox.AutoSize = true;
+            this.RemoveDuplicatesCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemoveDuplicatesCheckBox.Location = new System.Drawing.Point(415, 263);
+            this.RemoveDuplicatesCheckBox.Name = "RemoveDuplicatesCheckBox";
+            this.RemoveDuplicatesCheckBox.Size = new System.Drawing.Size(119, 17);
+            this.RemoveDuplicatesCheckBox.TabIndex = 11;
+            this.RemoveDuplicatesCheckBox.Text = "Remove Duplicates";
+            this.RemoveDuplicatesCheckBox.UseVisualStyleBackColor = true;
+            this.RemoveDuplicatesCheckBox.CheckedChanged += new System.EventHandler(this.RemoveDuplicatesCheckBox_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 424);
+            this.Controls.Add(this.RemoveDuplicatesCheckBox);
             this.Controls.Add(this.DCON);
             this.Controls.Add(this.RefreshAdapters);
             this.Controls.Add(this.AdapterList);
@@ -211,6 +225,7 @@
         private System.Windows.Forms.ListBox AdapterList;
         private System.Windows.Forms.Button RefreshAdapters;
         private System.Windows.Forms.Button DCON;
+        private System.Windows.Forms.CheckBox RemoveDuplicatesCheckBox;
     }
 }
 

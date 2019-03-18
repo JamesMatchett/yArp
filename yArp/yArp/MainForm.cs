@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
@@ -64,7 +65,7 @@ namespace yArp
 
         private async void Scan_ClickAsync(object sender, EventArgs e)
         {
-            await HostScanner.ScanHosts(AutoDetect.Checked, subnetTextBox, AdapterList, Devices);
+            await HostScanner.ScanHosts(AutoDetect.Checked, subnetTextBox, AdapterList, Devices, RemoveDuplicatesCheckBox.Checked);
         }
 
         private void RefreshAdapters_Click(object sender, EventArgs e)
@@ -75,6 +76,13 @@ namespace yArp
         private void DCON_Click(object sender, EventArgs e)
         {
             DCONHandler.DCON(Devices, AutoDetect.Checked, subnetTextBox, AdapterList);
+        }
+        {
+            if (RemoveDuplicatesCheckBox.Checked)
+            {
+                Devices.Items.Clear();
+                Scan_ClickAsync(null, null);
+            }
         }
     }
 }
